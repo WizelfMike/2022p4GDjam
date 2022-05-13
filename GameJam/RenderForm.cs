@@ -40,7 +40,7 @@ namespace GameJam
 
             renderer = new GameRenderer(gc);
 
-            gc.room = levelLoader.GetRoom(0, 0);
+            gc.room = levelLoader.GetRoom(1, 1);
 
             gc.player = new RenderObject()
             {
