@@ -60,10 +60,6 @@ namespace GameJam.Game
             }
             return room;
         }
-
-        //enemy hier komen
-        //maybe
-
     }
 }
 
