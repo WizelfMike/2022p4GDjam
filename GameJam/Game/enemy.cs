@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace GameJam.Game
 {
-    class enemy
+    public class Enemy
     {
         public char graphic;
         public Rectangle sprite;
