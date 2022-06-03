@@ -15,7 +15,7 @@ namespace GameJam.Game
 
         internal Enemy(GameContext gc)
         {
-            frames = gc.spriteMap.GetPlayerFrames();
+            frames = gc.spriteMap.GetEnemyFrames();
             rectangle = new Rectangle(2 * gc.tileSize, 2 * gc.tileSize, gc.tileSize, gc.tileSize);
             this.gc = gc;
         }

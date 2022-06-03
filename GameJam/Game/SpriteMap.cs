@@ -8,6 +8,7 @@ namespace GameJam.Game
     {
         private readonly Dictionary<char, Rectangle> tileMap = new Dictionary<char, Rectangle>();
         private readonly Rectangle[] playerAnimation;
+        private readonly Rectangle[] enemyAnimation;
 
         internal SpriteMap()
         {
@@ -23,6 +24,12 @@ namespace GameJam.Game
                     new Rectangle(60, 9, 16, 16),
                     new Rectangle(77, 9, 16, 16)
                 };
+            enemyAnimation = new Rectangle[]
+                {
+                    new Rectangle(63, 9, 16, 16),
+                    new Rectangle(54, 9, 16, 16),
+                    new Rectangle(12, 9, 16, 16)
+                };
         }
 
         internal Dictionary<char, Rectangle> GetMap()
@@ -33,6 +40,10 @@ namespace GameJam.Game
         internal Rectangle[] GetPlayerFrames()
         {
             return playerAnimation;
+        }
+        internal Rectangle[] GetEnemyFrames()
+        {
+            return enemyAnimation;
         }
     }
 
