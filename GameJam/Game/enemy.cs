@@ -29,21 +29,7 @@ namespace GameJam.Game
 
             if (next != null)
             {
-                //if (next.graphic == 'D')
-                //{
-                //    gc.room = GetRoom(gc.room.roomx + x, gc.room.roomy + y);
-
-                //    if (y != 0)
-                //    {
-                //        rectangle.Y += -y * ((gc.room.tiles.Length - 2) * gc.tileSize);
-                //    }
-                //    else
-                //    {
-                //        rectangle.X += -x * ((gc.room.tiles[0].Length - 2) * gc.tileSize);
-                //    }
-                //}
-
-                 if (next.graphic != '#' || next.graphic != 'D')
+                if (next.graphic != '#' || next.graphic != 'D')
                 {
                     rectangle.X = newx;
                     rectangle.Y = newy;
