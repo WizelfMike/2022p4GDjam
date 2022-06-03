@@ -35,7 +35,7 @@ namespace GameJam
         }
         private void RenderForm_Load(object sender, EventArgs e)
         {
-            levelLoader = new LevelLoader(gc.tileSize, new FileLevelDataSource());
+            levelLoader = new LevelLoader(gc.tileSize, new FileLevelDataSource(), gc);
             levelLoader.LoadRooms(gc.spriteMap.GetMap());
 
             renderer = new GameRenderer(gc);

@@ -50,6 +50,10 @@ namespace GameJam.Game
                     g.DrawImage(image, t.rectangle, t.sprite, GraphicsUnit.Pixel);
                 }
             }
+            foreach (Enemy e in context.room.enemys)
+            {
+                RenderObject(g, e);
+            }
         }
 
         private void RenderObject(Graphics g, RenderObject renderObject)

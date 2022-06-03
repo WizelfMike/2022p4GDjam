@@ -9,11 +9,13 @@ namespace GameJam.Game
     {
         private readonly ILevelDataSource levelDataSource;
         private readonly int size;
+        private readonly GameContext gc;
         private readonly Dictionary<string, Room> rooms = new Dictionary<string, Room>();
-        public LevelLoader(int size, ILevelDataSource levelDataSource)
+        public LevelLoader(int size, ILevelDataSource levelDataSource, GameContext gc)
         {
             this.levelDataSource = levelDataSource;
             this.size = size;
+            this.gc = gc;
         }
 
         public void LoadRooms(Dictionary<char, Rectangle> tileMap)
@@ -58,6 +60,9 @@ namespace GameJam.Game
 
                 }
             }
+            Enemy e = new Enemy(gc);
+            room.enemys.Add(e);
+
             return room;
         }
     }
