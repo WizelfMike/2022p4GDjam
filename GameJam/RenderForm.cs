@@ -54,6 +54,7 @@ namespace GameJam
                 (gc.tileSize * gc.room.tiles[0].Length) * gc.scaleunit,
                 (gc.tileSize * gc.room.tiles.Length) * gc.scaleunit
                 );
+                gc.clientSize = ClientSize;
         }
 
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
@@ -118,7 +119,7 @@ namespace GameJam
 
                 if (next.graphic == '%')
                 {
-                    Application.Exit();
+                    gc.states = GameStates.winGame;
                 }
             }
         }
