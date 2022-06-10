@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using GameJam.Tools;
 using GameJam.Game;
 
@@ -20,7 +22,15 @@ namespace GameJam.Game
             this.gc = gc;
         }
 
-        private void MoveEnemy(int x, int y)
+        /*public void RenderForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.W || e.KeyCode == Keys.S || e.KeyCode == Keys.D)
+            {
+                MoveEnemy(rx.Next(-1,1), ry.Next(-1, 1));
+            }
+        }*/
+
+        public void MoveEnemy(int x, int y)
         {
             float newx = rectangle.X + (x * gc.tileSize);
             float newy = rectangle.Y + (y * gc.tileSize);

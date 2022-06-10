@@ -11,12 +11,11 @@ namespace GameJam
 
     public partial class RenderForm : Form
     {
-
-
         private LevelLoader levelLoader;
         private float frametime;
         private GameRenderer renderer;
         private readonly GameContext gc = new GameContext();
+
         public RenderForm()
         {
             InitializeComponent();
@@ -74,6 +73,16 @@ namespace GameJam
             else if (e.KeyCode == Keys.D)
             {
                 MovePlayer(1, 0);
+            }
+
+            Random r = new Random();
+
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.W || e.KeyCode == Keys.S || e.KeyCode == Keys.D)
+            {
+                foreach (Enemy enemy in gc.room.enemys)
+                {
+                    enemy.MoveEnemy(r.Next(-1, 2), r.Next(-1, 2));
+                }
             }
         }
 
