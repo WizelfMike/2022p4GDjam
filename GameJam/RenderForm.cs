@@ -101,10 +101,15 @@ namespace GameJam
                     }
                 }
 
-                else if (next.graphic != '#')
+                else if (next.graphic != '#' && next.graphic != '@')
                 {
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
+                }
+
+                if (next.graphic == '%')
+                {
+                    Application.Exit();
                 }
             }
         }
