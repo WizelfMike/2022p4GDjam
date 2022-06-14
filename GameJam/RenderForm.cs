@@ -133,6 +133,11 @@ namespace GameJam
             base.OnPaint(e);
             renderer.Render(e, frametime);
         }
+
+        private void RenderForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

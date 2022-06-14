@@ -29,10 +29,10 @@ namespace GameJam.Game
                 };
             enemyAnimation = new Rectangle[]
                 {
-                    new Rectangle(16, 129, 16, 16),
-                    new Rectangle(16, 159, 16, 16),
-                    new Rectangle(32, 159, 16, 16),
-                    new Rectangle(64, 159, 16, 16)
+                    new Rectangle(15, 145, 16, 16),
+                    new Rectangle(15, 145, 16, 16),
+                    new Rectangle(33, 145, 16, 16),
+                    new Rectangle(33, 145, 16, 16),
                 };
         }
 

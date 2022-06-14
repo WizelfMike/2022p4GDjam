@@ -39,7 +39,7 @@ namespace GameJam.Game
 
             if (next != null)
             {
-                if (next.graphic != '#' || next.graphic != 'D')
+                if (next.graphic != '#')
                 {
                     rectangle.X = newx;
                     rectangle.Y = newy;
