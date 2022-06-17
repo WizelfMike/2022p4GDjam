@@ -38,7 +38,6 @@ namespace GameJam
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "RenderForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.RenderForm_Load_1);
             this.ResumeLayout(false);
 
         }

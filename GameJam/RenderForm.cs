@@ -83,6 +83,7 @@ namespace GameJam
                 foreach (Enemy enemy in gc.room.enemys)
                 {
                     enemy.MoveEnemy(r.Next(-1, 2), r.Next(-1, 2));
+                    LoseCondision(enemy);
                 }
             }
         }
@@ -134,12 +135,16 @@ namespace GameJam
             renderer.Render(e, frametime);
         }
 
-        private void RenderForm_Load_1(object sender, EventArgs e)
+        private void LoseCondision(Enemy enemy)
         {
+            RenderObject player = gc.player;
 
+            if (enemy.rectangle == player.rectangle)
+            {
+                gc.states = GameStates.endGame;
+            }
         }
     }
-
 }
 
 
