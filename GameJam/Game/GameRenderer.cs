@@ -11,6 +11,7 @@ namespace GameJam.Game
         private float frametime;
         private readonly Image image;
         private readonly Image winImage;
+        private readonly Image loseImage;
 
         public GameRenderer(GameContext context)
         {
@@ -18,6 +19,7 @@ namespace GameJam.Game
 
             image = Bitmap.FromFile("sprites.png");
             winImage = Bitmap.FromFile("Sir Tresór.png");
+            loseImage = Bitmap.FromFile("Sir Tresór Dead.png");
 
         }
         private Graphics InitGraphics(PaintEventArgs e)
@@ -52,7 +54,7 @@ namespace GameJam.Game
                     break;
 
                 case GameStates.endGame:
-
+                    RenderLose(g);
                     break;
             }
         }
@@ -76,6 +78,12 @@ namespace GameJam.Game
         {
             g.Transform = new Matrix();
             g.DrawImage(winImage, 0, 0, context.clientSize.Width, context.clientSize.Height);
+        }
+
+        private void RenderLose(Graphics g)
+        {
+            g.Transform = new Matrix();
+            g.DrawImage(loseImage, 0, 0, context.clientSize.Width, context.clientSize.Height);
         }
 
         private void RenderObject(Graphics g, RenderObject renderObject)

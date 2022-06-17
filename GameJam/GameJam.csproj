@@ -132,6 +132,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Milk.ico" />
+    <Content Include="Sir Tresór Dead.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sir Tresór.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
