@@ -10,12 +10,16 @@ namespace GameJam.Game
         private readonly GameContext context;
         private float frametime;
         private readonly Image image;
+        private readonly Image winImage;
+        private readonly Image loseImage;
 
         public GameRenderer(GameContext context)
         {
             this.context = context;
 
             image = Bitmap.FromFile("sprites.png");
+            winImage = Bitmap.FromFile("Sir Tresór.png");
+            loseImage = Bitmap.FromFile("Sir Tresór Dead.png");
 
         }
         private Graphics InitGraphics(PaintEventArgs e)
@@ -37,8 +41,22 @@ namespace GameJam.Game
             this.frametime = frametime;
 
             Graphics g = InitGraphics(e);
-            RenderRoom(g);
-            RenderObject(g, context.player);
+
+            switch (context.states)
+            {
+                case GameStates.inGame:
+                    RenderRoom(g);
+                    RenderObject(g, context.player);
+                    break;
+
+                case GameStates.winGame:
+                    RenderWin(g);
+                    break;
+
+                case GameStates.endGame:
+                    RenderLose(g);
+                    break;
+            }
         }
 
         private void RenderRoom(Graphics g)
@@ -50,6 +68,22 @@ namespace GameJam.Game
                     g.DrawImage(image, t.rectangle, t.sprite, GraphicsUnit.Pixel);
                 }
             }
+            foreach (Enemy e in context.room.enemys)
+            {
+                RenderObject(g, e);
+            }
+        }
+
+        private void RenderWin(Graphics g)
+        {
+            g.Transform = new Matrix();
+            g.DrawImage(winImage, 0, 0, context.clientSize.Width, context.clientSize.Height);
+        }
+
+        private void RenderLose(Graphics g)
+        {
+            g.Transform = new Matrix();
+            g.DrawImage(loseImage, 0, 0, context.clientSize.Width, context.clientSize.Height);
         }
 
         private void RenderObject(Graphics g, RenderObject renderObject)

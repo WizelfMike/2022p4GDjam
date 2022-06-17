@@ -11,12 +11,11 @@ namespace GameJam
 
     public partial class RenderForm : Form
     {
-
-
         private LevelLoader levelLoader;
         private float frametime;
         private GameRenderer renderer;
         private readonly GameContext gc = new GameContext();
+
         public RenderForm()
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace GameJam
         }
         private void RenderForm_Load(object sender, EventArgs e)
         {
-            levelLoader = new LevelLoader(gc.tileSize, new FileLevelDataSource());
+            levelLoader = new LevelLoader(gc.tileSize, new FileLevelDataSource(), gc);
             levelLoader.LoadRooms(gc.spriteMap.GetMap());
 
             renderer = new GameRenderer(gc);
@@ -45,7 +44,7 @@ namespace GameJam
             gc.player = new RenderObject()
             {
                 frames = gc.spriteMap.GetPlayerFrames(),
-                rectangle = new Rectangle(2 * gc.tileSize, 2 * gc.tileSize, gc.tileSize, gc.tileSize),
+                rectangle = new Rectangle(4 * gc.tileSize, 3 * gc.tileSize, gc.tileSize, gc.tileSize),
             };
 
 
@@ -55,6 +54,7 @@ namespace GameJam
                 (gc.tileSize * gc.room.tiles[0].Length) * gc.scaleunit,
                 (gc.tileSize * gc.room.tiles.Length) * gc.scaleunit
                 );
+                gc.clientSize = ClientSize;
         }
 
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
@@ -74,6 +74,17 @@ namespace GameJam
             else if (e.KeyCode == Keys.D)
             {
                 MovePlayer(1, 0);
+            }
+
+            Random r = new Random();
+
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.W || e.KeyCode == Keys.S || e.KeyCode == Keys.D)
+            {
+                foreach (Enemy enemy in gc.room.enemys)
+                {
+                    enemy.MoveEnemy(r.Next(-1, 2), r.Next(-1, 2));
+                    LoseCondision(enemy);
+                }
             }
         }
 
@@ -101,10 +112,15 @@ namespace GameJam
                     }
                 }
 
-                else if (next.graphic != '#')
+                else if (next.graphic != '#' && next.graphic != '@')
                 {
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
+                }
+
+                if (next.graphic == '%')
+                {
+                    gc.states = GameStates.winGame;
                 }
             }
         }
@@ -118,8 +134,22 @@ namespace GameJam
             base.OnPaint(e);
             renderer.Render(e, frametime);
         }
-    }
 
+        private void LoseCondision(Enemy enemy)
+        {
+            RenderObject player = gc.player;
+
+            if (enemy.rectangle == player.rectangle)
+            {
+                gc.states = GameStates.endGame;
+            }
+        }
+
+        private void RenderForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
 
 
