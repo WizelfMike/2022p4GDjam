@@ -144,6 +144,11 @@ namespace GameJam
                 gc.states = GameStates.endGame;
             }
         }
+
+        private void RenderForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
