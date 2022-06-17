@@ -29,6 +29,7 @@ namespace GameJam
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RenderForm));
             this.SuspendLayout();
             // 
             // RenderForm
@@ -36,8 +37,10 @@ namespace GameJam
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RenderForm";
-            this.Text = "Form1";
+            this.Text = "Sir Tresór\'s Epic Adventure for The Milk";
+            this.Load += new System.EventHandler(this.RenderForm_Load_1);
             this.ResumeLayout(false);
 
         }
