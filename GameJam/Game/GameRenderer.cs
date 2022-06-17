@@ -51,10 +51,12 @@ namespace GameJam.Game
 
                 case GameStates.winGame:
                     RenderWin(g);
+                    //game freezen of uit zetten
                     break;
 
                 case GameStates.endGame:
                     RenderLose(g);
+                    //game freezen of uit zetten
                     break;
             }
         }

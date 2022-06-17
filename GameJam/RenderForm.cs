@@ -59,6 +59,8 @@ namespace GameJam
 
         private void RenderForm_KeyDown(object sender, KeyEventArgs e)
         {
+            if (gc.states == GameStates.endGame || gc.states == GameStates.winGame) return;
+
             if (e.KeyCode == Keys.W)
             {
                 MovePlayer(0, -1);
