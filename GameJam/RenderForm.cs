@@ -44,7 +44,7 @@ namespace GameJam
             gc.player = new RenderObject()
             {
                 frames = gc.spriteMap.GetPlayerFrames(),
-                rectangle = new Rectangle(2 * gc.tileSize, 2 * gc.tileSize, gc.tileSize, gc.tileSize),
+                rectangle = new Rectangle(4 * gc.tileSize, 3 * gc.tileSize, gc.tileSize, gc.tileSize),
             };
 
 
