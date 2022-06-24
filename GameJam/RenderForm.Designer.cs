@@ -40,7 +40,6 @@ namespace GameJam
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RenderForm";
             this.Text = "Sir Tresór\'s Epic Adventure for The Milk";
-            this.Load += new System.EventHandler(this.RenderForm_Load_1);
             this.ResumeLayout(false);
 
         }

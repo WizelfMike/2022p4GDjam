@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\Enemy.cs" />
-    <Compile Include="Game\EnemyLoader.cs" />
     <Compile Include="Game\SpriteMap.cs" />
     <Compile Include="Game\States.cs" />
     <Compile Include="Tools\FileLevelDataSource.cs" />

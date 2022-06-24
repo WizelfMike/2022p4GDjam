@@ -114,7 +114,7 @@ namespace GameJam
                     }
                 }
 
-                else if (next.graphic != '#' && next.graphic != '@')
+                else if (next.graphic != '#' && next.graphic != '@' && next.graphic != '!')
                 {
                     player.rectangle.X = newx;
                     player.rectangle.Y = newy;
@@ -145,11 +145,6 @@ namespace GameJam
             {
                 gc.states = GameStates.endGame;
             }
-        }
-
-        private void RenderForm_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
